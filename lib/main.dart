@@ -19,13 +19,8 @@ class _QuoteListState extends State<QuoteList> {
 
   List<Quote> quotes = [
     Quote(text:'Be yourself,everyone is already taken.',author:'Oscar Wilde'),
-    Quote(text:'Change the world by being yourself.',author:'B'),
-    Quote(text:'Every moment is a fresh beginning.',author:'C'),
     Quote(text:'Be yourself,everyone is already taken.',author:'Oscar Wilde'),
     Quote(text:'Be yourself,everyone is already taken.',author:'Oscar Wilde'),
-    Quote(text:'Be yourself,everyone is already taken.',author:'Oscar Wilde'),
-
-
   ];
 
   @override
@@ -39,7 +34,13 @@ class _QuoteListState extends State<QuoteList> {
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
+        children: quotes.map((quote) => QuoteCard(
+            quote: quote,
+            delete: (){
+            setState(() =>quotes.remove(quote));
+            }
+        )).toList(),
+
       )
     );
 
