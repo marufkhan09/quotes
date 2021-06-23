@@ -36,6 +36,9 @@ class _QuoteListState extends State<QuoteList> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: quotes.map((quote) => QuoteCard(
             quote: quote,
+            //we are building this function as we cant modify the data in
+            //quote_card class as the data doesn't belong there so we are passing
+            //a  function named "delete" as a parameter in QuoteCard
             delete: (){
             setState(() =>quotes.remove(quote));
             }
